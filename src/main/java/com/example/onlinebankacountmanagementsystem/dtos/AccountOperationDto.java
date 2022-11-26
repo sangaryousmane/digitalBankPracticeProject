@@ -1,24 +1,22 @@
-package com.example.onlinebankacountmanagementsystem.entities;
+package com.example.onlinebankacountmanagementsystem.dtos;
 
-import com.example.onlinebankacountmanagementsystem.AccessMe;
+import com.example.onlinebankacountmanagementsystem.entities.BankAccount;
 import com.example.onlinebankacountmanagementsystem.utilities.OperationType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Getter @Setter @NoArgsConstructor
-public class AccountOperation extends AccessMe {
+@Data
+@NoArgsConstructor
+public class AccountOperationDto {
 
     private Date date;
     private double amount;
     private OperationType operation;
 
-    @OneToMany
     private List<BankAccount> accounts;
+
+
 }

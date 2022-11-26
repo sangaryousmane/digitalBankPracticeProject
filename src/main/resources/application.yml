@@ -1,1 +1,10 @@
-
+spring:
+  datasource:
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/online_bankacount_management
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: true

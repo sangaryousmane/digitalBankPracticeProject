@@ -1,2 +1,5 @@
-package com.example.onlinebankacountmanagementsystem.constants;public enum AccountStatus {
+package com.example.onlinebankacountmanagementsystem.utilities;
+
+public enum AccountStatus {
+    CREATED, ACTIVATED, SUSPENDED
 }
