@@ -10,5 +10,5 @@ public abstract class AccessMe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 }

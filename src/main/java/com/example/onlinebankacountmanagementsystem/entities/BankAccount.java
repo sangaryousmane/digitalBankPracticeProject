@@ -8,17 +8,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity(name = "BankAccount")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", length = 4)
 @Getter
 @Setter
 @NoArgsConstructor
-public class BankAccount extends AccessMe {
+public abstract class BankAccount {
 
+
+    @Id
+    private String id;
     private Date created_at;
     private double balance;
+
+    @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
     private String currency;
 
@@ -27,8 +34,8 @@ public class BankAccount extends AccessMe {
             optional = false)
     private Customer customer;
 
-    @ManyToOne
-    private AccountOperation accountOperation;
+    @OneToMany(mappedBy = "accounts")
+    private List<AccountOperation> accountOperation;
 
 
     public BankAccount(Date created_at, double balance,
@@ -38,7 +45,6 @@ public class BankAccount extends AccessMe {
         this.accountStatus = accountStatus;
         this.currency = currency;
     }
-
 
 
 }

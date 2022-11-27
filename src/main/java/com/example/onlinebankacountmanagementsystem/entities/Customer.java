@@ -2,6 +2,7 @@ package com.example.onlinebankacountmanagementsystem.entities;
 
 
 import com.example.onlinebankacountmanagementsystem.AccessMe;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -20,7 +21,8 @@ public class Customer extends AccessMe {
     private String lastName;
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<BankAccount> accounts;
 
     public Customer(String firstName, String lastName,

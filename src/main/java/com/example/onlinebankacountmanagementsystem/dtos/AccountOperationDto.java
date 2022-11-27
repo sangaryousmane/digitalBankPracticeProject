@@ -12,11 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 public class AccountOperationDto {
 
+    private Long id;
     private Date date;
     private double amount;
     private OperationType operation;
+    private String description;
 
-    private List<BankAccount> accounts;
+
 
 
 }

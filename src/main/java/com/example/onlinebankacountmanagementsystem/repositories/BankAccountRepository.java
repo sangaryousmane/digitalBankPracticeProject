@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BankAccountRepository extends JpaRepository<BankAccount, Integer> {
+public interface BankAccountRepository extends JpaRepository<BankAccount, String> {
 
     @Query("SELECT b FROM BankAccount b  WHERE b.currency=:currency")
     List<BankAccount> findByCurrencyEquals(@Param("currency") String currency);
